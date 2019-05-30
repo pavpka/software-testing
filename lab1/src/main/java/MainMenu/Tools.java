@@ -15,7 +15,6 @@ public class Tools extends DropDownMenu {
 
     public void testTools() {
         String allMenuXpath = "//div[@class='goog-menu goog-menu-vertical docs-material docs-menu-hide-mnemonics docs-menu-attached-button-above']";
-        testSearch(allMenuXpath);
         testDictionary(allMenuXpath);
         testQuestionsHistory(allMenuXpath);
         testSetting(allMenuXpath);

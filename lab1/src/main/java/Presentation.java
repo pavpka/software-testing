@@ -18,7 +18,7 @@ class Presentation {
     private void testMenus() {
         List<WebElement> toolBarItems = driver.findElements(By.xpath("//*[@id=\"docs-toolbar\"]/*"));
         ToolBar toolBar = new ToolBar(driver);
-        toolBar.testToolBar(toolBarItems);
+        //toolBar.testToolBar(toolBarItems);
 
         List<WebElement> menuItems = driver.findElements(By.xpath("//div[@id='docs-menubar']/*"));
         Menu menu = new Menu(driver);

@@ -32,7 +32,7 @@ abstract public class RightClickDropDown {
             System.out.println("test-case#" + testCase + ": кнопка " + title + " нажата ");
             Thread.sleep(1000);
         } catch (Exception e) {
-            System.out.println("test-case#" + testCase + ": кнопка " + title + " не нажата " + e);
+            System.out.println("test-case#" + testCase + ": кнопка " + title + " не нажата ");
         }
     }
 
@@ -49,13 +49,14 @@ abstract public class RightClickDropDown {
             System.out.println("test-case#" + testCase + ": кнопка " + title + " нажата");
             Thread.sleep(1000);
         } catch (Exception e) {
-            System.out.println("test-case#" + testCase + ": кнопка " + title + " не нажата " + e);
+            System.out.println("test-case#" + testCase + ": кнопка " + title + " не нажата ");
         }
 
     }
 
     private String rightClick(Actions act, WebElement slide, String dropDownMenuXpath, String itemXpath) {
-        act.contextClick(slide).build().perform();
+        act.contextClick(slide)
+                .build().perform();
         WebElement item = (new WebDriverWait(driver, 12))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(dropDownMenuXpath + itemXpath)));
         title = item.getText();

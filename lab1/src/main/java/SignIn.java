@@ -13,9 +13,9 @@ class SignIn {
 
     void signIn() {
         FieldForSignIn testCase10 = new FieldForSignIn(10, "pitsik.julia", "");
-        sendLogin(testCase10);
+        //sendLogin(testCase10);
         FieldForSignIn testCase11 = new FieldForSignIn(11, "julia.pitsik", "julia0123");
-        sendLogin(testCase11);
+        //sendLogin(testCase11);
         FieldForSignIn testCase12 = new FieldForSignIn(12, "julia.pitsik", "0123julia");
         if (sendLogin(testCase12)) {
             MainPage mainPage = new MainPage(driver);
@@ -28,7 +28,7 @@ class SignIn {
         driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys(testCase.userName);
         driver.findElement(By.xpath("//*[@id=\"identifierNext\"]")).click();
         try {
-            WebElement inputPass = (new WebDriverWait(driver, 10))
+            WebElement inputPass = (new WebDriverWait(driver, 3))
                     .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='password']/div[1]/div/div[1]/input")));
             return sendPassword(testCase, inputPass);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ class SignIn {
         input.sendKeys(testCase.pass);
         driver.findElement(By.xpath("//*[@id=\"passwordNext\"]")).click();
         try {
-            WebElement newPresentation = (new WebDriverWait(driver, 15))
+            WebElement newPresentation = (new WebDriverWait(driver, 3))
                     .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='docs-homescreen-container docs-homescreen-slides']")));
             System.out.println("test-case#" + testCase.num + ": авторизация выполнена");
             return true;

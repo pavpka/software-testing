@@ -69,7 +69,6 @@ public class Edit extends DropDownMenu {
         } catch (Exception e) {
         }
         try {
-            //Thread.sleep(1000);
             menuButton.click();
             String menuItemPath = menu + "/div[11]";
             WebElement menuItem = (new WebDriverWait(driver, 10))

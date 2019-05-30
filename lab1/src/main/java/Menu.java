@@ -1,6 +1,7 @@
 
 import MainMenu.*;
 import RightClick.RightClick;
+import RightClick.TextAreaRightClick;
 import org.openqa.selenium.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class Menu {
         this.driver = driver;
     }
 
-    public void testDropDownMenu(List<WebElement> menuItems) {
+    public void testDropDownMenu(List<WebElement> menuItems) {/*
         for (WebElement menuItem : menuItems) {
             if (menuItem.getAttribute("id").equals("docs-file-menu")) {
                 File file = new File(driver, menuItem);
@@ -39,8 +40,10 @@ public class Menu {
                 Help help = new Help(driver, menuItem);
                 help.testHelp();
             }
-        }
+        }*/
         RightClick rightClick = new RightClick(driver);
         rightClick.testRightClick();
+        TextAreaRightClick textAreaRightClick = new TextAreaRightClick(driver);
+        textAreaRightClick.testTextAreaRightClick();
     }
 }

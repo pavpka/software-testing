@@ -23,11 +23,11 @@ class MainPage {
             //выводим сообщение о прохождении тестового сценария
             System.out.println("test-case#13: новая презентация создана");
             //в случае успешного создания презентации переходим к следующим тестам
-            Presentation presentation = new Presentation(driver);
-            presentation.workOnPresentationPage();
         } catch (Exception e) {
             //выводим сообщение о непрохождении тестового сценария
             System.out.println("test-case#13: новая презентация не создана");
         }
+        Presentation presentation = new Presentation(driver);
+        presentation.workOnPresentationPage();
     }
 }

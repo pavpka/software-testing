@@ -11,17 +11,17 @@ public class Main {
         ChromeOptions option = new ChromeOptions();
         option.addArguments("--start-maximized"); //Уставливаем размер окна на весь экран
         WebDriver driver = new ChromeDriver(option);//Конструктор класса ChromeDriver запускает ChromeDriver сервер и открывает веб-браузер Chrome с указанными аргументами
-        driver.get("https://www.google.ru/intl/ru/slides/about/"); //Переход на главную страницу Google Slides
-        driver.findElement(By.xpath("//a[@class='maia-button button-download']")).click();
+        //driver.get("https://www.google.ru/intl/ru/slides/about/"); //Переход на главную страницу Google Slides
+        //driver.findElement(By.xpath("//a[@class='maia-button button-download']")).click();
         SignUp signUp = new SignUp(driver);//создание экземпляра класса регистрации
-        signUp.signUp();//запуск тестовых сценариев в модуле "регистрация"
+        //signUp.signUp();//запуск тестовых сценариев в модуле "регистрация"
 
         driver.get("https://www.google.ru/intl/ru/slides/about/");
         driver.findElement(By.xpath("//a[@class='maia-button button-download']")).click();
         SignIn signIn = new SignIn(driver);
         signIn.signIn();//запуск тестовых сценариев в модуле "авторизация" и последующих
         System.out.println("Тестирование завершено");
-        driver.quit();// завершение процесса
+        //driver.quit();// завершение процесса
     }
 
 }

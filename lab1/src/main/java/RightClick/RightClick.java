@@ -17,10 +17,12 @@ public class RightClick extends RightClickDropDown{
     }
     public void testRightClick(){
         WebElement firstSlide = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='filmstrip']/div")));
-        testCut(firstSlide);
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='punch-filmstrip-thumbnail-background']")));
+        WebElement slidesArea = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='punch-filmstrip-scroll']")));
+        //testCut(firstSlide);
         testCopy(firstSlide);
-        testPaste(firstSlide);
+        testPaste(slidesArea);
         testNewSlide(firstSlide);
         testDoubleSlide(firstSlide);
         testSkipSlide(firstSlide);
@@ -28,7 +30,6 @@ public class RightClick extends RightClickDropDown{
         testChangeScheme(firstSlide);
         testChangeTransition(firstSlide);
         testMoveToStart(firstSlide);
-        testComment(firstSlide);
     }
     private void testCut(WebElement targetSlide){
         String itemXpath = "/div[4]";

@@ -35,7 +35,7 @@ public class ToolBar {
             } else if (items.get(i).getAttribute("id").equals("slideLayoutMenuButton")) {
                 testSlideLayoutMenuButton(items.get(i));
             } else if (items.get(i).getAttribute("id").equals("slideThemeButton")) {
-                // testSlideThemeButton(items.get(i));
+                testSlideThemeButton(items.get(i));
             } else if (items.get(i).getAttribute("id").equals("slideTransitionButton")) {
                 testSlideTransitionButton(items.get(i));
             }
