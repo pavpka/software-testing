@@ -1,9 +1,9 @@
 package main
 
-import main.services.FindOnCompositions
+import main.services.Search
 
 fun main() {
-    val searching = FindOnCompositions()
+    val searching = Search()
     var isWork = true
     while (isWork) {
         println(
@@ -21,10 +21,10 @@ fun main() {
                         println("Введите автора, либо нажмите enter, если хотите найти все композиции с таким названием")
                         val author = readLine()
                         if (author == "") {
-                            searching.findByName(name!!)
+                            searching.findCompositionByName(name!!)
                             break
                         } else {
-                            searching.findByNameAndAuthor(name!!, author!!)
+                            searching.findCompositionByNameAndAuthor(name!!, author!!)
                             break
                         }
                     }
