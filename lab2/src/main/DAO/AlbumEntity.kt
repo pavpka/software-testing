@@ -7,5 +7,5 @@ import org.jetbrains.exposed.dao.IntEntityClass
 class AlbumEntity (id: EntityID<Int>) : IntEntity(id){
     companion object: IntEntityClass<AlbumEntity>(AlbumTable)
 
-    val name by AlbumTable.name
+    var name by AlbumTable.name
 }

@@ -1,9 +1,14 @@
 package main
 
+import main.services.Adding
+import main.services.Deletion
 import main.services.Search
 
 fun main() {
-    val searching = Search()
+    val dbm = DBManager()
+    val searching = Search(dbm)
+    val adding = Adding(dbm)
+    val deletion = Deletion(dbm)
     var isWork = true
     while (isWork) {
         println(

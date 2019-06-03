@@ -2,8 +2,7 @@ package main.services
 
 import main.DBManager
 
-class Search {
-    private val dbm = DBManager()
+class Search(private val dbm: DBManager) {
 
     fun findCompositionByName(name: String): Boolean {
         val compositions = dbm.findCompositionsByName(name)
