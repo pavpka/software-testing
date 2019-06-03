@@ -1,5 +1,7 @@
 package test
 
+import main.DBManager
+import main.services.Adding
 import main.services.Deletion
 import main.services.Search
 import org.junit.Test
@@ -8,12 +10,13 @@ import org.junit.jupiter.api.function.Executable
 import kotlin.test.assertEquals
 
 class DeletionTest {
-    private val service = Deletion()
-    private val check = Search()
+    private val dbm = DBManager()
+    private val service = Deletion(dbm)
+    private val check = Search(dbm)
 
     @Test
     fun `delete composition by existing name`() {
-        val name = "newComposition"
+        val name = "test"
         assertAll("composition",
                 Executable { assertEquals(true, service.deleteCompositionsByName(name)) },
                 Executable { assertEquals(false, check.findCompositionByName(name)) }
@@ -28,7 +31,7 @@ class DeletionTest {
 
     @Test
     fun `delete author by existing name`() {
-        val name = "newAuthor"
+        val name = "test"
         assertAll("author",
                 Executable { assertEquals(true, service.deleteAuthor(name)) },
                 Executable { assertEquals(false, check.findCompositionByAuthor(name)) }
@@ -43,7 +46,7 @@ class DeletionTest {
 
     @Test
     fun `delete genre by existing name`() {
-        val name = "newGenre"
+        val name = "test"
         assertAll("genre",
                 Executable { assertEquals(true, service.deleteGenre(name)) },
                 Executable { assertEquals(false, check.findCompositionByGenre(name)) }
@@ -58,7 +61,7 @@ class DeletionTest {
 
     @Test
     fun `delete album by existing name`() {
-        val name = "newAlbum"
+        val name = "test"
         assertAll("album",
                 Executable { assertEquals(true, service.deleteAlbum(name)) },
                 Executable { assertEquals(false, check.findCompositionByAlbum(name)) }

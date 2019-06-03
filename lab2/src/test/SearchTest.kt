@@ -1,10 +1,17 @@
+import main.DBManager
 import main.services.Search
 import org.junit.jupiter.api.Test
+import org.junit.runner.RunWith
+import org.junit.runners.Suite
+import test.AddingTest
+import test.DeletionTest
 import kotlin.test.assertEquals
 
+@RunWith(Suite::class)
+@Suite.SuiteClasses(AddingTest::class, DeletionTest::class)
 class SearchTest {
-
-    private val service = Search()
+    private val dbm = DBManager()
+    private val service = Search(dbm)
 
     @Test
     fun `find compositions by existing name`() {

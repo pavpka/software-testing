@@ -1,16 +1,18 @@
 package test
 
+import main.DBManager
 import main.services.Adding
 import main.services.Search
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class AddingTest{
-    private val service = Adding()
-    private val check = Search()
+class AddingTest {
+    private val dbm = DBManager()
+    private val service = Adding(dbm)
+    private val check = Search(dbm)
 
     @Test
-    fun `add new composition`(){
+    fun `add new composition`() {
         val name = "newComposition"
         val author = "test1"
         val genre = "test1"
@@ -20,7 +22,7 @@ class AddingTest{
     }
 
     @Test
-    fun `add existing composition`(){
+    fun `add existing composition`() {
         val name = "test"
         val author = "test"
         val genre = "test"
@@ -29,40 +31,37 @@ class AddingTest{
     }
 
     @Test
-    fun `add new author`(){
+    fun `add new author`() {
         val name = "testAuthor"
-        service.addNewAuthor(name)
-        assertEquals(true, check.findCompositionByAuthor(name))
+        assertEquals(true, service.addNewAuthor(name))
     }
 
     @Test
-    fun `add existing author`(){
+    fun `add existing author`() {
         val name = "test"
         assertEquals(false, service.addNewAuthor(name))
     }
 
     @Test
-    fun `add new genre`(){
+    fun `add new genre`() {
         val name = "newGenre"
-        service.addNewGenre(name)
-        assertEquals(true, check.findCompositionByGenre(name))
+        assertEquals(true, service.addNewGenre(name))
     }
 
     @Test
-    fun `add existing genre`(){
+    fun `add existing genre`() {
         val name = "test"
         assertEquals(false, service.addNewGenre(name))
     }
 
     @Test
-    fun `add new album`(){
+    fun `add new album`() {
         val name = "newAlbum"
-        service.addNewAlbum(name)
-        assertEquals(true, check.findCompositionByAlbum(name))
+        assertEquals(true, service.addNewAlbum(name))
     }
 
     @Test
-    fun `add existing album`(){
+    fun `add existing album`() {
         val name = "test"
         assertEquals(false, service.addNewAlbum(name))
     }
