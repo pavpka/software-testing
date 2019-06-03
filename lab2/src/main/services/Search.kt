@@ -30,7 +30,7 @@ class Search(private val dbm: DBManager) {
         val compositions = dbm.findCompositionsByAlbum(album)
         if (compositions.isNotEmpty()) {
             compositions.forEach {
-                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name}")
                 return true
             }
         }
@@ -42,7 +42,7 @@ class Search(private val dbm: DBManager) {
         val compositions = dbm.findCompositionsByAuthor(author)
         if (compositions.isNotEmpty()) {
             compositions.forEach {
-                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                println("${it.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
                 return true
             }
         }
@@ -54,7 +54,7 @@ class Search(private val dbm: DBManager) {
         val compositions = dbm.findCompositionsByGenre(genre)
         if (compositions.isNotEmpty()) {
             compositions.forEach {
-                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                println("${it.name} | ${it.author.name} | Альбом: ${it.album.name}")
                 return true
             }
         }
@@ -64,11 +64,12 @@ class Search(private val dbm: DBManager) {
 
     fun findAllCompositions(): Boolean {
         val compositions = dbm.findAllCompositions()
+        println(compositions.size)
         if (compositions.isNotEmpty()) {
             compositions.forEach {
-                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
-                return true
+                println("${it.name} | Автор: ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
             }
+            return true
         }
         println("В каталоге не найдено композиций")
         return false
@@ -108,6 +109,18 @@ class Search(private val dbm: DBManager) {
         }
         println("В каталоге не найдено ни одного альбома")
         return false
+    }
+
+    fun findAuthor(name: String): String? {
+        return dbm.findAuthor(name)
+    }
+
+    fun findGenre(name: String): String? {
+        return dbm.findGenre(name)
+    }
+
+    fun findAlbum(name: String): String? {
+        return dbm.findAlbum(name)
     }
 
 }
