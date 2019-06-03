@@ -28,41 +28,86 @@ class Search {
     }
 
     fun findCompositionByAlbum(album: String): Boolean {
+        val compositions = dbm.findCompositionsByAlbum(album)
+        if (compositions.isNotEmpty()) {
+            compositions.forEach {
+                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                return true
+            }
+        }
+        println("Композиции в альбоме $album не найдены")
         return false
     }
 
     fun findCompositionByAuthor(author: String): Boolean {
+        val compositions = dbm.findCompositionsByAuthor(author)
+        if (compositions.isNotEmpty()) {
+            compositions.forEach {
+                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                return true
+            }
+        }
+        println("Композиции автора $author не найдены")
         return false
     }
 
     fun findCompositionByGenre(genre: String): Boolean {
+        val compositions = dbm.findCompositionsByGenre(genre)
+        if (compositions.isNotEmpty()) {
+            compositions.forEach {
+                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                return true
+            }
+        }
+        println("Композиции жанра $genre не найдены")
         return false
     }
 
     fun findAllCompositions(): Boolean {
+        val compositions = dbm.findAllCompositions()
+        if (compositions.isNotEmpty()) {
+            compositions.forEach {
+                println("${it.name} | ${it.author.name} | Жанр: ${it.genre.name} | Альбом: ${it.album.name}")
+                return true
+            }
+        }
+        println("В каталоге не найдено композиций")
         return false
     }
 
-    fun findAuthorByName(name: String): Boolean {
+    fun findAllAuthors(): Boolean {
+        val authors = dbm.findAllAuthors()
+        if (authors.isNotEmpty()) {
+            authors.forEach {
+                println(it.name)
+                return true
+            }
+        }
+        println("В каталоге не найдено ни одного автора")
         return false
     }
 
-    fun findGenreByName(name: String): Boolean {
+    fun findAllGenres(): Boolean {
+        val genres = dbm.findAllGenres()
+        if (genres.isNotEmpty()) {
+            genres.forEach {
+                println(it.name)
+                return true
+            }
+        }
+        println("В каталоге не найдено ни одного жанра")
         return false
     }
 
-    fun findAlbumByName(name: String): Boolean {
-        return false
-    }
-    fun findAllAuthors(name: String): Boolean {
-        return false
-    }
-
-    fun findAllGenres(name: String): Boolean {
-        return false
-    }
-
-    fun findAllAlbums(name: String): Boolean {
+    fun findAllAlbums(): Boolean {
+        val albums = dbm.findAllAlbums()
+        if (albums.isNotEmpty()) {
+            albums.forEach {
+                println(it.name)
+                return true
+            }
+        }
+        println("В каталоге не найдено ни одного альбома")
         return false
     }
 

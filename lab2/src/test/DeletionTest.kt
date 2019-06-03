@@ -3,8 +3,9 @@ package test
 import main.services.Deletion
 import main.services.Search
 import org.junit.Test
-import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.function.Executable
+import kotlin.test.assertEquals
 
 class DeletionTest {
     private val service = Deletion()
@@ -30,7 +31,7 @@ class DeletionTest {
         val name = "newAuthor"
         assertAll("author",
                 Executable { assertEquals(true, service.deleteAuthor(name)) },
-                Executable { assertEquals(false, check.findAuthorByName(name)) }
+                Executable { assertEquals(false, check.findCompositionByAuthor(name)) }
         )
     }
 
@@ -45,7 +46,7 @@ class DeletionTest {
         val name = "newGenre"
         assertAll("genre",
                 Executable { assertEquals(true, service.deleteGenre(name)) },
-                Executable { assertEquals(false, check.findGenreByName(name)) }
+                Executable { assertEquals(false, check.findCompositionByGenre(name)) }
         )
     }
 
@@ -60,7 +61,7 @@ class DeletionTest {
         val name = "newAlbum"
         assertAll("album",
                 Executable { assertEquals(true, service.deleteAlbum(name)) },
-                Executable { assertEquals(false, check.findAlbumByName(name)) }
+                Executable { assertEquals(false, check.findCompositionByAlbum(name)) }
         )
     }
 

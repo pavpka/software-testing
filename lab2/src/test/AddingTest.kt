@@ -3,6 +3,7 @@ package test
 import main.services.Adding
 import main.services.Search
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class AddingTest{
     private val service = Adding()
@@ -31,7 +32,7 @@ class AddingTest{
     fun `add new author`(){
         val name = "testAuthor"
         service.addNewAuthor(name)
-        assertEquals(true, check.findAuthorByName(name))
+        assertEquals(true, check.findCompositionByAuthor(name))
     }
 
     @Test
@@ -44,7 +45,7 @@ class AddingTest{
     fun `add new genre`(){
         val name = "newGenre"
         service.addNewGenre(name)
-        assertEquals(true, check.findGenreByName(name))
+        assertEquals(true, check.findCompositionByGenre(name))
     }
 
     @Test
@@ -57,7 +58,7 @@ class AddingTest{
     fun `add new album`(){
         val name = "newAlbum"
         service.addNewAlbum(name)
-        assertEquals(true, check.findAlbumByName(name))
+        assertEquals(true, check.findCompositionByAlbum(name))
     }
 
     @Test

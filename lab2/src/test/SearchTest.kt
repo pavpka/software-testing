@@ -81,38 +81,15 @@ class SearchTest {
     }
 
     @Test
-    fun `find album by existing name`(){
-        val name = "test"
-        assertEquals(true, service.findAlbumByName(name))
+    fun `find all authors`(){
+        assertEquals(true, service.findAllAuthors())
     }
-
     @Test
-    fun `find album by not existing name`(){
-        val name = "abc"
-        assertEquals(false, service.findAlbumByName(name))
+    fun `find all genres`(){
+        assertEquals(true, service.findAllGenres())
     }
-
     @Test
-    fun `find author by existing name`(){
-        val name = "test"
-        assertEquals(true, service.findAuthorByName(name))
-    }
-
-    @Test
-    fun `find author by not existing name`(){
-        val name = "abc"
-        assertEquals(false, service.findAuthorByName(name))
-    }
-
-    @Test
-    fun `find genre by existing name`(){
-        val name = "test"
-        assertEquals(true, service.findGenreByName(name))
-    }
-
-    @Test
-    fun `find genre by not existing name`(){
-        val name = "test"
-        assertEquals(false, service.findGenreByName(name))
+    fun `find all albums`(){
+        assertEquals(true, service.findAllAlbums())
     }
 }

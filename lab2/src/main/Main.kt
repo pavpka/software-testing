@@ -31,7 +31,9 @@ fun main() {
                     println("Некорректный ввод.")
                 }
             }
-            "2" -> println("get")
+            "2" -> {
+                val album = readLine()
+                searching.findCompositionByAlbum(album!!)}
             "3" -> println("add")
             "4" -> println("delete")
             "5" -> isWork = false
