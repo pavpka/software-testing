@@ -34,7 +34,7 @@ class DeletionTest {
         val name = "test"
         assertAll("author",
                 Executable { assertEquals(true, service.deleteAuthor(name)) },
-                Executable { assertEquals(false, check.findCompositionByAuthor(name)) }
+                Executable { assertEquals(null, check.findAuthor(name)) }
         )
     }
 
@@ -49,7 +49,7 @@ class DeletionTest {
         val name = "test"
         assertAll("genre",
                 Executable { assertEquals(true, service.deleteGenre(name)) },
-                Executable { assertEquals(false, check.findCompositionByGenre(name)) }
+                Executable { assertEquals(null, check.findGenre(name)) }
         )
     }
 
@@ -64,7 +64,7 @@ class DeletionTest {
         val name = "test"
         assertAll("album",
                 Executable { assertEquals(true, service.deleteAlbum(name)) },
-                Executable { assertEquals(false, check.findCompositionByAlbum(name)) }
+                Executable { assertEquals(null, check.findAlbum(name)) }
         )
     }
 
