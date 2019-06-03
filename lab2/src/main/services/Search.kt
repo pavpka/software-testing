@@ -54,5 +54,16 @@ class Search {
     fun findAlbumByName(name: String): Boolean {
         return false
     }
+    fun findAllAuthors(name: String): Boolean {
+        return false
+    }
+
+    fun findAllGenres(name: String): Boolean {
+        return false
+    }
+
+    fun findAllAlbums(name: String): Boolean {
+        return false
+    }
 
 }

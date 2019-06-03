@@ -2,53 +2,65 @@ import main.services.Search
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class Search {
+class SearchTest {
 
     private val service = Search()
 
     @Test
     fun `find compositions by existing name`() {
-        assertEquals(true, service.findCompositionByName("test"))
+        val name = "test"
+        assertEquals(true, service.findCompositionByName(name))
     }
 
     @Test
     fun `find composition by not existing name`() {
-        assertEquals(false, service.findCompositionByName("abc"))
+        val name = "abc"
+        assertEquals(false, service.findCompositionByName(name))
     }
 
     @Test
     fun `find composition by existing name and existing author`(){
-        assertEquals(true, service.findCompositionByNameAndAuthor("test", "test"))
+        val name = "test"
+        val author = "test"
+        assertEquals(true, service.findCompositionByNameAndAuthor(name, author))
     }
 
     @Test
     fun `find composition by existing name and not existing author`(){
-        assertEquals(false, service.findCompositionByNameAndAuthor("test", "abc"))
+        val name = "test"
+        val author = "abc"
+        assertEquals(false, service.findCompositionByNameAndAuthor(name, author))
     }
 
     @Test
     fun `find composition by not existing name and not existing author`(){
-        assertEquals(false, service.findCompositionByNameAndAuthor("abc", "abc"))
+        val name = "abc"
+        val author = "abc"
+        assertEquals(false, service.findCompositionByNameAndAuthor(name, author))
     }
 
     @Test
     fun `find compositions by existing album`(){
-        assertEquals(true, service.findCompositionByAlbum("test"))
+        val albumName = "test"
+        assertEquals(true, service.findCompositionByAlbum(albumName))
     }
 
     @Test
     fun `find compositions by not existing album`(){
-        assertEquals(false, service.findCompositionByAlbum("abc"))
+        val albumName = "abc"
+        assertEquals(false, service.findCompositionByAlbum(albumName))
     }
 
     @Test
     fun `find compositions by existing genre`(){
-        assertEquals(true, service.findCompositionByGenre("test"))
+        val genreName = "test"
+        assertEquals(true, service.findCompositionByGenre(genreName))
     }
 
     @Test
     fun `find compositions by not existing genre`(){
-        assertEquals(false, service.findCompositionByGenre("abc"))
+        val genreName = "abc"
+        assertEquals(false, service.findCompositionByGenre(genreName))
     }
 
     @Test
@@ -58,41 +70,49 @@ class Search {
 
     @Test
     fun `find compositions by existing author`(){
-        assertEquals(true, service.findCompositionByAuthor("test"))
+        val authorName = "test"
+        assertEquals(true, service.findCompositionByAuthor(authorName))
     }
 
     @Test
     fun `find compositions by not existing author`(){
-        assertEquals(false, service.findCompositionByAuthor("abc"))
+        val authorName = "abc"
+        assertEquals(false, service.findCompositionByAuthor(authorName))
     }
 
     @Test
     fun `find album by existing name`(){
-        assertEquals(true, service.findAlbumByName("test"))
+        val name = "test"
+        assertEquals(true, service.findAlbumByName(name))
     }
 
     @Test
     fun `find album by not existing name`(){
-        assertEquals(false, service.findAlbumByName("abc"))
+        val name = "abc"
+        assertEquals(false, service.findAlbumByName(name))
     }
 
     @Test
     fun `find author by existing name`(){
-        assertEquals(true, service.findAuthorByName("test"))
+        val name = "test"
+        assertEquals(true, service.findAuthorByName(name))
     }
 
     @Test
     fun `find author by not existing name`(){
-        assertEquals(false, service.findAuthorByName("abc"))
+        val name = "abc"
+        assertEquals(false, service.findAuthorByName(name))
     }
 
     @Test
     fun `find genre by existing name`(){
-        assertEquals(true, service.findGenreByName("test"))
+        val name = "test"
+        assertEquals(true, service.findGenreByName(name))
     }
 
     @Test
     fun `find genre by not existing name`(){
-        assertEquals(false, service.findGenreByName("test"))
+        val name = "test"
+        assertEquals(false, service.findGenreByName(name))
     }
 }
